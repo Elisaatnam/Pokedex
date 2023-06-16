@@ -14,7 +14,7 @@ const fetchPokemon = () => {
 	//! fuer jede promise erstllen wir nun ein Objekt mit den Daten die wir verwenden moechten
 	Promise.all(promises).then(data => {
 		const pokemon = data.map(dataObj => ({
-			name: dataObj.name,
+			name: dataObj.name.charAt(0).toUpperCase() + dataObj.name.slice(1),
 			id: dataObj.id,
 			image: dataObj.sprites.other["official-artwork"].front_default,
 			type: dataObj.types.map(type => type.type.name).join(", "),
@@ -27,12 +27,12 @@ const fetchPokemon = () => {
 const displayPokemon = pokemon => {
 	console.log(pokemon);
 	const pokemonHtmlString = pokemon.map(pokemon => {
-		return `<li>
+		return `<article>
             <img src="${pokemon.image}">
             <h2>${pokemon.id}. ${pokemon.name}</h2>
             <p>Type: ${pokemon.type}</p>
             <p>Weight: ${pokemon.weight}</p>
-        </li>`;
+        </article>`;
 	});
 	pokedex.innerHTML = pokemonHtmlString.join("");
 };

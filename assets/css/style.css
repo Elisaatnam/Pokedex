@@ -14,18 +14,80 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: sans-serif;
 }
 
 h1 {
 	font-family: Pokemon;
+	-webkit-text-fill-color: #ffcb05;
+	font-size: 5vw;
+	letter-spacing: 0.25vw;
 }
 
-a {
-	text-decoration: none;
+h2 {
+	font-size: 2vw;
+	margin-bottom: 1vh;
+}
+
+p {
+	font-size: 1.2vw;
+	margin-bottom: 0.5vh;
+}
+
+h2,
+p {
+	color: rgb(44, 44, 44);
 }
 
 img {
-	max-width: 100%;
+	width: 75%;
+	height: auto;
 }
 
-/* HEADER  */
+.container {
+	text-align: center;
+	background-color: #2a75bb;
+	padding: 2vh 1vw;
+}
+
+section {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 15px;
+}
+
+article {
+	padding: 1.5vh;
+	background-color: rgba(128, 128, 128, 0.334);
+	border-radius: 10px;
+	transition: 0.3s ease-in-out;
+}
+
+article:hover {
+	background-color: rgba(128, 128, 128, 0.787);
+	transform: scale(1.2);
+}
+
+article:hover h2,
+article:hover p {
+	color: whitesmoke;
+}
+
+@media only screen and (max-width: 576px) {
+	h1 {
+		font-size: 10vw;
+	}
+
+	h2 {
+		font-size: 5vw;
+	}
+
+	p {
+		font-size: 3vw;
+	}
+
+	section {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+	}
+}
